@@ -14,7 +14,8 @@ require([
     "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url =
-    "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D/MapServer";
+    // "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D/MapServer";
+    "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
   // const url = "https://services5.arcgis.com/pzri1WaMnTa8pQZb/arcgis/rest/services/Izinga_3D/FeatureServer/0";
 
   const popupTemplate = {
