@@ -4,8 +4,9 @@ require([
   "esri/config",
   "esri/Map",
   "esri/layers/FeatureLayer",
-  "esri/views/MapView"
-], function (esriConfig, Map, FeatureLayer, MapView) {
+  "esri/views/MapView",
+  "esri/layers/TileLayer"
+], function (esriConfig, Map, FeatureLayer, MapView, TileLayer) {
   /* HTML elements that are not sanitized
    * https://doc.arcgis.com/en/arcgis-online/reference/supported-html.htm
    */
@@ -21,6 +22,13 @@ require([
   const trailheadsLayer = new FeatureLayer({
     url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer"
   });
+
+  const sewerLayer = new TileLayer({
+    url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer",
+    id: "sewer",
+    opacity: 0.7
+  });
+  
 
   const popupTemplate = {
     outFields: ["*"],
@@ -46,9 +54,9 @@ require([
 
   const map = new Map({
     basemap: "arcgis-imagery",
-    layers: [new FeatureLayer({ url, popupTemplate })]
+    layers: [new FeatureLayer({ url, popupTemplate }), sewerLayer]
   });
-  map.add(trailheadsLayer);
+  // map.add(trailheadsLayer);
 
   const view = new MapView({
     container: "viewDiv",
