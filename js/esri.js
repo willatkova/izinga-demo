@@ -54,15 +54,20 @@ require([
 
   const map = new Map({
     basemap: "arcgis-imagery",
-    layers: [new FeatureLayer({ url, popupTemplate }), sewerLayer]
+    layers: [new FeatureLayer({ url, popupTemplate })]
   });
-  // map.add(trailheadsLayer);
+  map.add(sewerLayer);
 
   const view = new MapView({
     container: "viewDiv",
     center: [31.08184222222222, -29.70377],
     zoom: 19,
     map
+  });
+
+  const sewerLayerToggle = document.getElementById("sewerLayer");
+  sewerLayerToggle.addEventListener("change", () => {
+    sewerLayer.visible = sewerLayerToggle.checked;
   });
 
   
