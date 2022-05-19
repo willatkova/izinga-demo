@@ -5,10 +5,10 @@ require([
   "esri/Map",
   "esri/layers/FeatureLayer",
   "esri/views/MapView",
-  "esri/layers/TileLayer",
   "dojo/on",
-  "dojo/dom"
-], function (esriConfig, Map, FeatureLayer, MapView, TileLayer, on, dom) {
+  "dojo/dom",
+  "dojo/dom-style"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -57,19 +57,31 @@ require([
   on(dom.byId("layer0"), "click", function (event) {
     console.log("layer zero");
     pannellumLayer.visible = !pannellumLayer.visible;
-    // the var 'event' is available, and is the normalized object
+    if (pannellumLayer.visible) {
+      domStyle.set(dom.byId("layer0"), "backgroundColor", "darkseagreen");
+    } else {
+      domStyle.set(dom.byId("layer0"), "backgroundColor", "gainsboro");
+    }
   });
 
   on(dom.byId("layer1"), "click", function (event) {
     console.log("layer one");
     sewerLayer.visible = !sewerLayer.visible;
-    // the var 'event' is available, and is the normalized object
+    if (sewerLayer.visible) {
+      domStyle.set(dom.byId("layer1"), "backgroundColor", "darkseagreen");
+    } else {
+      domStyle.set(dom.byId("layer1"), "backgroundColor", "gainsboro");
+    }
   });
 
   on(dom.byId("layer2"), "click", function (event) {
     console.log("layer two");
     stormwaterLayer.visible = !stormwaterLayer.visible;
-    // the var 'event' is available, and is the normalized object
+    if (stormwaterLayer.visible) {
+      domStyle.set(dom.byId("layer2"), "backgroundColor", "darkseagreen");
+    } else {
+      domStyle.set(dom.byId("layer2"), "backgroundColor", "gainsboro");
+    }
   });
   
 });
