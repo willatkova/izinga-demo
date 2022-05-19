@@ -7,23 +7,13 @@ require([
   "esri/views/MapView",
   "esri/layers/TileLayer"
 ], function (esriConfig, Map, FeatureLayer, MapView, TileLayer) {
-  /* HTML elements that are not sanitized
-   * https://doc.arcgis.com/en/arcgis-online/reference/supported-html.htm
-   */
-
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
-  // const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D/MapServer";
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
   
-  // const url = "https://services5.arcgis.com/pzri1WaMnTa8pQZb/arcgis/rest/services/Izinga_3D/FeatureServer/0";
-
-  
-  const sewerLayer = new TileLayer({
-    url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer",
-    id: "sewer",
-    opacity: 0.7
-  });
+  const pannellumLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"pannellum",opacity: 0.8});
+  const sewerLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"sewer",opacity: 0.8});
+  const stormwaterLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"stormwater",opacity: 0.8});
   
 
   const popupTemplate = {
@@ -50,9 +40,8 @@ require([
 
   const map = new Map({
     basemap: "arcgis-imagery",
-    layers: [new FeatureLayer({ url, popupTemplate })]
+    layers: [pannellumLayer,sewerLayer,stormwaterLayer]
   });
-  map.add(sewerLayer);
 
   const view = new MapView({
     container: "viewDiv",
