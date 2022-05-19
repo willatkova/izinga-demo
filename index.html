@@ -19,13 +19,18 @@
             width: 100%;
          }
          
-         .esriPopup.light.esriPopupWrapper {
-            position: initial !important;
+         .esri-popup__main-container.esri-widget {
+            background-color: gainsboro;
+            min-height: 80vh !important;
+            min-width: 80vw !important;
+            position: fixed;
+            top: 20vh;
+            left: 20vw;
+            transform: translate(-10vw, -10vh);
          }
-         
-         .esriPopup.sizer {
-            position: initial !important;
-            width: 100% !important;
+
+         iframe {
+            min-height: calc(80vh - 106px) !important;
          }
        </style>
    

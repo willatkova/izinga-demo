@@ -43,7 +43,7 @@ require([
       buttonEnabled: true,
       breakpoint: {
         width: 2000,
-        height: 2080
+        height: 800
       }
     }
   };
