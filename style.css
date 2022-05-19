@@ -6,10 +6,24 @@ body,
   height: 100%;
   width: 100%;
 }
-.esriPopup.light.esriPopupWrapper {
+
+/* .esriPopup.light.esriPopupWrapper {
   position: initial !important;
 }
 .esriPopup.sizer {
   position: initial !important;
   width: 100% !important;
+} */
+
+.esri-popup__main-container.esri-widget {
+  min-height: 80vh !important;
+  min-width: 80vw !important;
+  position: fixed;
+  top: 20vh;
+  left: 20vw;
+  transform: translate(-10vw, -10vh);
+}
+
+iframe {
+  min-height: calc(80vh - 106px) !important;
 }

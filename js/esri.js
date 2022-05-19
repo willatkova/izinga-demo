@@ -11,17 +11,14 @@ require([
    * https://doc.arcgis.com/en/arcgis-online/reference/supported-html.htm
    */
 
-  esriConfig.apiKey =
-    "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
+  esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   // const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D/MapServer";
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
+  
   // const url = "https://services5.arcgis.com/pzri1WaMnTa8pQZb/arcgis/rest/services/Izinga_3D/FeatureServer/0";
 
-  const trailheadsLayer = new FeatureLayer({
-    url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer"
-  });
-
+  
   const sewerLayer = new TileLayer({
     url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer",
     id: "sewer",
@@ -36,12 +33,12 @@ require([
       const { OBJECTID } = feature.graphic.attributes;
       const { imgURL } = feature.graphic.attributes;
       console.log(imgURL);
-      const unsanitizedHTML = `<iframe allowfullscreen style="width:100%;height:100%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true"></iframe>`;
+      const unsanitizedHTML = `<iframe allowfullscreen style="width:100%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true"></iframe>`;
       const div = document.createElement("div");
       div.innerHTML = unsanitizedHTML.concat(``);
       return div;
     },
-    width: 1000,
+    // width: 80,
     dockOptions: {
       buttonEnabled: true,
       breakpoint: {
