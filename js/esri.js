@@ -58,9 +58,9 @@ require([
     console.log("layer zero");
     pannellumLayer.visible = !pannellumLayer.visible;
     if (pannellumLayer.visible) {
-      domStyle.set(dom.byId("layer0"), "backgroundColor", "darkseagreen");
+      domStyle.set(dom.byId("layer0"), "color", "black");
     } else {
-      domStyle.set(dom.byId("layer0"), "backgroundColor", "gainsboro");
+      domStyle.set(dom.byId("layer0"), "color", "darkgray");
     }
   });
 
@@ -68,9 +68,9 @@ require([
     console.log("layer one");
     sewerLayer.visible = !sewerLayer.visible;
     if (sewerLayer.visible) {
-      domStyle.set(dom.byId("layer1"), "backgroundColor", "darkseagreen");
+      domStyle.set(dom.byId("layer1"), "color", "black");
     } else {
-      domStyle.set(dom.byId("layer1"), "backgroundColor", "gainsboro");
+      domStyle.set(dom.byId("layer1"), "color", "darkgray");
     }
   });
 
@@ -78,9 +78,9 @@ require([
     console.log("layer two");
     stormwaterLayer.visible = !stormwaterLayer.visible;
     if (stormwaterLayer.visible) {
-      domStyle.set(dom.byId("layer2"), "backgroundColor", "darkseagreen");
+      domStyle.set(dom.byId("layer2"), "color", "black");
     } else {
-      domStyle.set(dom.byId("layer2"), "backgroundColor", "gainsboro");
+      domStyle.set(dom.byId("layer2"), "color", "darkgray");
     }
   });
   
