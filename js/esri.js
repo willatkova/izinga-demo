@@ -5,8 +5,10 @@ require([
   "esri/Map",
   "esri/layers/FeatureLayer",
   "esri/views/MapView",
-  "esri/layers/TileLayer"
-], function (esriConfig, Map, FeatureLayer, MapView, TileLayer) {
+  "esri/layers/TileLayer",
+  "dojo/on",
+  "dojo/dom"
+], function (esriConfig, Map, FeatureLayer, MapView, TileLayer, on, dom) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -52,10 +54,22 @@ require([
     map
   });
 
-  const sewerLayerToggle = document.getElementById("sewerLayer");
-  sewerLayerToggle.addEventListener("change", () => {
-    sewerLayer.visible = sewerLayerToggle.checked;
+  on(dom.byId("layer0"), "click", function (event) {
+    console.log("layer zero");
+    pannellumLayer.visible = !pannellumLayer.visible;
+    // the var 'event' is available, and is the normalized object
   });
 
+  on(dom.byId("layer1"), "click", function (event) {
+    console.log("layer one");
+    sewerLayer.visible = !sewerLayer.visible;
+    // the var 'event' is available, and is the normalized object
+  });
+
+  on(dom.byId("layer2"), "click", function (event) {
+    console.log("layer two");
+    stormwaterLayer.visible = !stormwaterLayer.visible;
+    // the var 'event' is available, and is the normalized object
+  });
   
 });
