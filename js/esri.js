@@ -42,8 +42,8 @@ require([
     content: function (feature) {
       const { OBJECTID } = feature.graphic.attributes;
       const { imgURL } = feature.graphic.attributes;
-      console.log(imgURL);
-      const unsanitizedHTML = `<iframe allowfullscreen style="width:100%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true"></iframe>`;
+      const { imgOld } = feature.graphic.attributes;
+      const unsanitizedHTML = `<iframe id="popUpFrame" allowfullscreen style="width:100%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true"></iframe>`;
       const div = document.createElement("div");
       div.innerHTML = unsanitizedHTML.concat(``);
       return div;
@@ -197,7 +197,7 @@ require([
   view.popup.on("trigger-action", (event) => {
     console.log("this trigger happens");
 
-    const attributes = popup.viewModel.selectedFeature.attributes;
+    const attributes = view.popup.viewModel.selectedFeature.attributes;
     // Get the 'website' field attribute
     console.log(attributes);
     // Execute the measureThis() function if the measure-this action is clicked
