@@ -179,7 +179,8 @@ require([
   view.ui.add(homeWidget, "top-left");
 
   let scaleBar = new ScaleBar({
-    view: view
+    view: view,
+    unit: "metric",
   });
   view.ui.add(scaleBar, {
     position: "bottom-left"
