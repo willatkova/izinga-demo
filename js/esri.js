@@ -109,8 +109,8 @@ require([
   const measureExpand = new Expand({
     view: view,
     content: new Measurement({
-      view: view,
-      activeTool: "distance"
+      view: view
+      // activeTool: "distance"
     }),
     group: "top-right",
     expanded: false
