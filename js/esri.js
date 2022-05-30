@@ -70,6 +70,15 @@ require([
     expanded: false
   });
 
+  const layerListExpand = new Expand({
+    view: view,
+    content: new LayerList({
+      view: view
+    }),
+    group: "top-right",
+    expanded: false
+  });
+
   const baseMapExpand = new Expand({
     view: view,
     content: new BasemapGallery({
@@ -80,7 +89,7 @@ require([
     expanded: false
   });
 
-  view.ui.add([legendExpand, baseMapExpand], {
+  view.ui.add([legendExpand, layerListExpand, baseMapExpand], {
     position: "top-trailing"
   });
 
