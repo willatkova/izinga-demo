@@ -59,7 +59,8 @@ require([
   });
 
   let basemapGallery = new BasemapGallery({
-    view: view
+    view: view,
+    visible: true,
   });
   view.ui.add(basemapGallery, {
     position: "top-right"
