@@ -22,6 +22,13 @@ require([
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
   
+  const splitAction = {
+    title: "Split",
+    id: "date-action-split"
+    // image:
+    //   "https://developers.arcgis.com/javascript/latest/sample-code/popup-actions/live/Measure_Distance16.png"
+  };
+
   const prevDateAction = {
     title: "Oct 2021",
     id: "date-action-prev"
@@ -43,7 +50,7 @@ require([
       const { OBJECTID } = feature.graphic.attributes;
       const { imgURL } = feature.graphic.attributes;
       const { imgOld } = feature.graphic.attributes;
-      const unsanitizedHTML = `<iframe id="panoFrame" allowfullscreen style="width:100%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true"></iframe>`;
+      const unsanitizedHTML = `<iframe id="panoFrameCurrent" allowfullscreen style="width:50%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true"></iframe><iframe id="panoFramePrev" allowfullscreen style="width:50%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgOld}&autoRotate=-2&autoLoad=true"></iframe>`;
       const div = document.createElement("div");
       div.innerHTML = unsanitizedHTML.concat(``);
       return div;
@@ -198,18 +205,34 @@ require([
     const attributes = view.popup.viewModel.selectedFeature.attributes;
     console.log(attributes);
 
+    if (event.action.id === "date-action-split") {
+      console.log("prev");
+      var framePrev = dom.byId("panoFramePrev");
+      var frameCurrent = dom.byId("panoFrameCurrent");
+      domStyle.set(framePrev, "visibility", "visible");
+      domStyle.set(framePrev, "width", "50%");
+      domStyle.set(frameCurrent, "visibility", "visible");
+      domStyle.set(frameCurrent, "width", "50%");
+    }
+
     if (event.action.id === "date-action-prev") {
-      console.log("this happens");
-      var frame = dom.byId("panoFrame");
-      const url = attributes.imgOld;
-      frame.src = "https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${url}&autoRotate=-2&autoLoad=true";
+      console.log("prev");
+      var framePrev = dom.byId("panoFramePrev");
+      var frameCurrent = dom.byId("panoFrameCurrent");
+      domStyle.set(framePrev, "visibility", "visible");
+      domStyle.set(framePrev, "width", "100%");
+      domStyle.set(frameCurrent, "visibility", "hidden");
+      domStyle.set(frameCurrent, "width", "0%");
     }
 
     if (event.action.id === "date-action-current") {
-      console.log("this happens");
-      var frame = dom.byId("panoFrame");
-      const url = attributes.imgURL;
-      frame.src = "https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${url}&autoRotate=-2&autoLoad=true";
+      console.log("current");
+      var framePrev = dom.byId("panoFramePrev");
+      var frameCurrent = dom.byId("panoFrameCurrent");
+      domStyle.set(frameCurrent, "visibility", "visible");
+      domStyle.set(frameCurrent, "width", "100%");
+      domStyle.set(framePrev, "visibility", "hidden");
+      domStyle.set(framePrev, "width", "0%");
     }
   });
   
