@@ -178,17 +178,13 @@ require([
     view: view
   });
   let locateWidget = new Locate({
-    view: view,   // Attaches the Locate button to the view
-    graphic: new Graphic({
-      symbol: { type: "simple-marker" }  // overwrites the default symbol used for the
-      // graphic placed at the location of the user when found
-    })
+    view: view
   });
   view.ui.add([homeWidget, locateWidget], "top-left");
 
   let scaleBar = new ScaleBar({
     view: view,
-    unit: "metric",
+    unit: "metric"
   });
   view.ui.add(scaleBar, {
     position: "bottom-left"
