@@ -18,8 +18,9 @@ require([
   "esri/widgets/Measurement",
   "esri/widgets/Sketch",
   "esri/widgets/ScaleBar",
-  "esri/widgets/Home"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement, Sketch, ScaleBar, Home) {
+  "esri/widgets/Home",
+  "esri/widgets/Locate"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement, Sketch, ScaleBar, Home, Locate) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -176,7 +177,14 @@ require([
   let homeWidget = new Home({
     view: view
   });
-  view.ui.add(homeWidget, "top-left");
+  let locateWidget = new Locate({
+    view: view,   // Attaches the Locate button to the view
+    graphic: new Graphic({
+      symbol: { type: "simple-marker" }  // overwrites the default symbol used for the
+      // graphic placed at the location of the user when found
+    })
+  });
+  view.ui.add([homeWidget, locateWidget], "top-left");
 
   let scaleBar = new ScaleBar({
     view: view,
