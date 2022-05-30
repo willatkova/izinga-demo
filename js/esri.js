@@ -7,8 +7,12 @@ require([
   "esri/views/MapView",
   "dojo/on",
   "dojo/dom",
-  "dojo/dom-style"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle) {
+  "dojo/dom-style",
+  "esri/views/ui/DefaultUI",
+  "esri/widgets/Legend",
+  "esri/widgets/Bookmarks",
+  "esri/widgets/BasemapGallery"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Legend, Bookmarks, BasemapGallery) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -53,6 +57,14 @@ require([
     zoom: 19,
     map
   });
+
+  let basemapGallery = new BasemapGallery({
+    view: view
+  });
+  view.ui.add(basemapGallery, {
+    position: "top-right"
+  });
+
 
   on(dom.byId("layer0"), "click", function (event) {
     console.log("layer zero");
