@@ -16,8 +16,10 @@ require([
   "esri/widgets/BasemapGallery",
   "esri/widgets/Print",
   "esri/widgets/Measurement",
-  "esri/widgets/Sketch"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement, Sketch) {
+  "esri/widgets/Sketch",
+  "esri/widgets/ScaleBar",
+  "esri/widgets/Home"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement, Sketch, ScaleBar, Home) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -166,9 +168,23 @@ require([
 
 
 
+
   view.ui.add([legendExpand, layerListExpand, measureExpand, drawExpand, bookmarkExpand, printExpand, baseMapExpand], {
     position: "top-trailing"
   });
+
+  let homeWidget = new Home({
+    view: view
+  });
+  view.ui.add(homeWidget, "top-left");
+
+  let scaleBar = new ScaleBar({
+    view: view
+  });
+  view.ui.add(scaleBar, {
+    position: "bottom-left"
+  });
+
 
 
   on(dom.byId("layer0"), "click", function (event) {
