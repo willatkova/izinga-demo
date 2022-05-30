@@ -23,15 +23,15 @@ require([
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
   
   const prevDateAction = {
-    title: "Oct 2021"
-    // id: "date-action-prev"
+    title: "Oct 2021",
+    id: "date-action-prev"
     // image:
     //   "https://developers.arcgis.com/javascript/latest/sample-code/popup-actions/live/Measure_Distance16.png"
   };
 
   const currentDateAction = {
-    title: "Feb 2022"
-    // id: "date-action-current"
+    title: "Feb 2022",
+    id: "date-action-current"
     // image:
     //   "https://developers.arcgis.com/javascript/latest/sample-code/popup-actions/live/Measure_Distance16.png"
   };
@@ -191,6 +191,25 @@ require([
       domStyle.set(dom.byId("layer2"), "color", "black");
     } else {
       domStyle.set(dom.byId("layer2"), "color", "darkgray");
+    }
+  });
+
+  view.popup.on("trigger-action", (event) => {
+    console.log("this trigger happens");
+
+    const attributes = popup.viewModel.selectedFeature.attributes;
+    // Get the 'website' field attribute
+    console.log(attributes);
+    // Execute the measureThis() function if the measure-this action is clicked
+    if (event.action.id === "date-action-prev") {
+      console.log("this happens");
+      var frame = dom.byId("panoFrame");
+      frame.src =
+        "https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true";
+    }
+
+    if (event.action.id === "date-action-current") {
+      console.log("this happens");
     }
   });
   
