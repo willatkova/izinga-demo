@@ -15,8 +15,9 @@ require([
   "esri/widgets/Bookmarks",
   "esri/widgets/BasemapGallery",
   "esri/widgets/Print",
-  "esri/widgets/Measurement"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement) {
+  "esri/widgets/Measurement",
+  "esri/widgets/Sketch"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement, Sketch) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -96,13 +97,10 @@ require([
     content: new Bookmarks({
       view: view,
       editingEnabled: true,
-      // whenever a new bookmark is created, a 100x100 px
-      // screenshot of the view will be taken and the rotation, scale, and extent
-      // of the view will not be set as the viewpoint of the new bookmark
       defaultCreateOptions: {
         takeScreenshot: true,
         captureViewpoint: false,
-        captureTimeExtent: false, // the time extent of the view will not be saved in the bookmark
+        captureTimeExtent: false,
         screenshotSettings: {
           width: 100,
           height: 100
@@ -113,7 +111,15 @@ require([
     expanded: false
   });
 
-  
+  const drawExpand = new Expand({
+    view: view,
+    content: new Sketch({
+      layer: graphicsLayer,
+      view: view
+    }),
+    group: "top-right",
+    expanded: false
+  });
 
   const printExpand = new Expand({
     view: view,
@@ -139,7 +145,7 @@ require([
 
 
 
-  view.ui.add([legendExpand, layerListExpand, measureExpand,bookmarkExpand, printExpand, baseMapExpand], {
+  view.ui.add([legendExpand, layerListExpand, measureExpand, drawExpand, bookmarkExpand, printExpand, baseMapExpand], {
     position: "top-trailing"
   });
 
