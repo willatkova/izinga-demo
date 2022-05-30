@@ -14,8 +14,9 @@ require([
   "esri/widgets/LayerList",
   "esri/widgets/Bookmarks",
   "esri/widgets/BasemapGallery",
-  "esri/widgets/Print"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print) {
+  "esri/widgets/Print",
+  "esri/widgets/Measurement"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print, Measurement) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -80,6 +81,16 @@ require([
     expanded: false
   });
 
+  const measureExpand = new Expand({
+    view: view,
+    content: new Measurement({
+      view: view,
+      activeTool: "distance"
+    }),
+    group: "top-right",
+    expanded: false
+  });
+
   const printExpand = new Expand({
     view: view,
     content: new Print({
@@ -102,7 +113,9 @@ require([
     expanded: false
   });
 
-  view.ui.add([legendExpand, layerListExpand, printExpand, baseMapExpand], {
+
+
+  view.ui.add([legendExpand, layerListExpand, measureExpand, printExpand, baseMapExpand], {
     position: "top-trailing"
   });
 
