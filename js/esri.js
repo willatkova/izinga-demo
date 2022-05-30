@@ -22,6 +22,20 @@ require([
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
   
+  const prevDateAction = {
+    title: "Oct 2021"
+    // id: "date-action-prev"
+    // image:
+    //   "https://developers.arcgis.com/javascript/latest/sample-code/popup-actions/live/Measure_Distance16.png"
+  };
+
+  const currentDateAction = {
+    title: "Feb 2022"
+    // id: "date-action-current"
+    // image:
+    //   "https://developers.arcgis.com/javascript/latest/sample-code/popup-actions/live/Measure_Distance16.png"
+  };
+
   const popupTemplate = {
     outFields: ["*"],
     title: "{Name}",
@@ -34,6 +48,7 @@ require([
       div.innerHTML = unsanitizedHTML.concat(``);
       return div;
     },
+    actions: [prevDateAction, currentDateAction],
     // width: 80,
     dockOptions: {
       buttonEnabled: true,
@@ -48,7 +63,6 @@ require([
   const sewerLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"sewer",opacity: 0.8});
   const stormwaterLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"stormwater",opacity: 0.8});
   
-
   
 
   const map = new Map({
