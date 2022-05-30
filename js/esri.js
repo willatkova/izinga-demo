@@ -91,6 +91,30 @@ require([
     expanded: false
   });
 
+  const bookmarkExpand = new Expand({
+    view: view,
+    content: new Bookmarks({
+      view: view,
+      editingEnabled: true,
+      // whenever a new bookmark is created, a 100x100 px
+      // screenshot of the view will be taken and the rotation, scale, and extent
+      // of the view will not be set as the viewpoint of the new bookmark
+      defaultCreateOptions: {
+        takeScreenshot: true,
+        captureViewpoint: false,
+        captureTimeExtent: false, // the time extent of the view will not be saved in the bookmark
+        screenshotSettings: {
+          width: 100,
+          height: 100
+        }
+      }
+   }),
+    group: "top-right",
+    expanded: false
+  });
+
+  
+
   const printExpand = new Expand({
     view: view,
     content: new Print({
@@ -115,7 +139,7 @@ require([
 
 
 
-  view.ui.add([legendExpand, layerListExpand, measureExpand, printExpand, baseMapExpand], {
+  view.ui.add([legendExpand, layerListExpand, measureExpand,bookmarkExpand, printExpand, baseMapExpand], {
     position: "top-trailing"
   });
 
