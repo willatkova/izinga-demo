@@ -55,7 +55,7 @@ require([
       div.innerHTML = unsanitizedHTML.concat(``);
       return div;
     },
-    actions: [prevDateAction, currentDateAction],
+    actions: [splitAction, prevDateAction, currentDateAction],
     // width: 80,
     dockOptions: {
       buttonEnabled: true,
