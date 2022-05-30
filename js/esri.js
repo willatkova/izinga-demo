@@ -9,10 +9,12 @@ require([
   "dojo/dom",
   "dojo/dom-style",
   "esri/views/ui/DefaultUI",
+  "esri/widgets/Expand",
   "esri/widgets/Legend",
+  "esri/widgets/LayerList",
   "esri/widgets/Bookmarks",
   "esri/widgets/BasemapGallery"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Legend, Bookmarks, BasemapGallery) {
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -58,12 +60,28 @@ require([
     map
   });
 
-  let basemapGallery = new BasemapGallery({
+  
+  const legendExpand = new Expand({
     view: view,
-    visible: true,
+    content: new Legend({
+      view: view
+    }),
+    group: "top-right",
+    expanded: false
   });
-  view.ui.add(basemapGallery, {
-    position: "top-right"
+
+  const baseMapExpand = new Expand({
+    view: view,
+    content: new BasemapGallery({
+      view: view,
+      container: document.createElement("div")
+    }),
+    group: "top-right",
+    expanded: false
+  });
+
+  view.ui.add([legendExpand, baseMapExpand], {
+    position: "top-trailing"
   });
 
 
