@@ -13,8 +13,9 @@ require([
   "esri/widgets/Legend",
   "esri/widgets/LayerList",
   "esri/widgets/Bookmarks",
-  "esri/widgets/BasemapGallery"
-], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery) {
+  "esri/widgets/BasemapGallery",
+  "esri/widgets/Print"
+], function (esriConfig, Map, FeatureLayer, MapView, on, dom, domStyle, DefaultUI, Expand, Legend, LayerList, Bookmarks, BasemapGallery, Print) {
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
@@ -79,6 +80,18 @@ require([
     expanded: false
   });
 
+  const printExpand = new Expand({
+    view: view,
+    content: new Print({
+      view: view,
+      // specify your own print service
+      printServiceUrl:
+         "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task"
+    }),
+    group: "top-right",
+    expanded: false
+  });
+
   const baseMapExpand = new Expand({
     view: view,
     content: new BasemapGallery({
@@ -89,7 +102,7 @@ require([
     expanded: false
   });
 
-  view.ui.add([legendExpand, layerListExpand, baseMapExpand], {
+  view.ui.add([legendExpand, layerListExpand, printExpand, baseMapExpand], {
     position: "top-trailing"
   });
 
