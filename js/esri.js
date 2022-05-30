@@ -114,7 +114,7 @@ require([
   const drawExpand = new Expand({
     view: view,
     content: new Sketch({
-      layer: graphicsLayer,
+      layer: pannellumLayer,
       view: view
     }),
     group: "top-right",
