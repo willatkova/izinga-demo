@@ -53,7 +53,7 @@ require([
       const { OBJECTID } = feature.graphic.attributes;
       const { imgURL } = feature.graphic.attributes;
       const { imgOld } = feature.graphic.attributes;
-      const unsanitizedHTML = `</iframe><iframe id="panoFramePrev" allowfullscreen style="width:50%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgOld}&autoRotate=-2&autoLoad=true"></iframe><iframe id="panoFrameCurrent" allowfullscreen style="width:50%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true">`;
+      const unsanitizedHTML = `</iframe><iframe id="panoFramePrev" allowfullscreen style="width:0%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgOld}&autoRotate=-2&autoLoad=true"></iframe><iframe id="panoFrameCurrent" allowfullscreen style="width:100%;border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=${imgURL}&autoRotate=-2&autoLoad=true">`;
       const div = document.createElement("div");
       div.innerHTML = unsanitizedHTML.concat(``);
       return div;
@@ -94,7 +94,7 @@ require([
       view: view
     }),
     group: "top-right",
-    expanded: false
+    expanded: true
   });
 
   const layerListExpand = new Expand({
