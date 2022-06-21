@@ -71,8 +71,8 @@ require([
     }
   };
   
-  const layer_00 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"layer_00",opacity: 0.8,popupTemplate:popupTemplate});
-  const layer_01 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"layer_01",opacity: 0.8});
+  const layer_00 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"layer_00",opacity: 0.8,popupTemplate:popupTemplate,title:"Izinga 360"});
+  const layer_01 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"layer_01",opacity: 0.8,title:"Cadastral Parcels"});
   const layer_02 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"layer_02",opacity: 0.8,visible:false});
   const layer_03 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/3",id:"layer_03",opacity: 0.8,visible:false});
   const layer_04 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/4",id:"layer_04",opacity: 0.8,visible:false});
@@ -81,9 +81,9 @@ require([
   const layer_07 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/7",id:"layer_07",opacity: 0.8,visible:false});
   const layer_08 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/8",id:"layer_08",opacity: 0.8,visible:false});
   
-  const layer_10 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/13_October_2021_Izinga/ImageServer",opacity: 0.8,visible:false});
-  const layer_11 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/30_November_2021_Izinga/ImageServer",opacity: 0.8,visible: false});
-  const layer_12 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/23_May_2022_Izinga/ImageServer",opacity: 0.8,visible: false});
+  const layer_10 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/13_October_2021_Izinga/ImageServer",opacity: 0.8,visible:false,title:"2021 October 13"});
+  const layer_11 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/30_November_2021_Izinga/ImageServer",opacity: 0.8,visible: false,title:"2021 November 30"});
+  const layer_12 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/23_May_2022_Izinga/ImageServer",opacity: 0.8,visible: false,title:"2022 May 23"});
 
 // "Unable to find basemap definition for: Layers. Try one of these: \"arcgis-imagery\", \"arcgis-imagery-standard\", \"arcgis-imagery-labels\", \"arcgis-light-gray\", \"arcgis-dark-gray\", \"arcgis-navigation\", \"arcgis-navigation-night\", \"arcgis-streets\", \"arcgis-streets-night\", \"arcgis-streets-relief\", \"arcgis-topographic\", \"arcgis-oceans\", \"osm-standard\", \"osm-standard-relief\", \"osm-streets\", \"osm-streets-relief\", \"osm-light-gray\", \"osm-dark-gray\", \"arcgis-terrain\", \"arcgis-community\", \"arcgis-charted-territory\", \"arcgis-colored-pencil\", \"arcgis-nova\", \"arcgis-modern-antique\", \"arcgis-midcentury\", \"arcgis-newspaper\", \"arcgis-hillshade-light\", \"arcgis-hillshade-dark\""
 
