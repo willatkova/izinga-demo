@@ -81,9 +81,9 @@ require([
   const layer_07 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/7",id:"layer_07",opacity: 0.8,visible:false});
   const layer_08 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/8",id:"layer_08",opacity: 0.8,visible:false});
   
-  const layer_10 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/13_October_2021_Izinga/ImageServer",visible:false});
-  const layer_11 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/30_November_2021_Izinga/ImageServer",visible: false});
-  const layer_12 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/23_May_2022_Izinga/ImageServer",visible: false});
+  const layer_10 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/13_October_2021_Izinga/ImageServer",opacity: 0.8,visible:false});
+  const layer_11 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/30_November_2021_Izinga/ImageServer",opacity: 0.8,visible: false});
+  const layer_12 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/23_May_2022_Izinga/ImageServer",opacity: 0.8,visible: false});
 
 // "Unable to find basemap definition for: Layers. Try one of these: \"arcgis-imagery\", \"arcgis-imagery-standard\", \"arcgis-imagery-labels\", \"arcgis-light-gray\", \"arcgis-dark-gray\", \"arcgis-navigation\", \"arcgis-navigation-night\", \"arcgis-streets\", \"arcgis-streets-night\", \"arcgis-streets-relief\", \"arcgis-topographic\", \"arcgis-oceans\", \"osm-standard\", \"osm-standard-relief\", \"osm-streets\", \"osm-streets-relief\", \"osm-light-gray\", \"osm-dark-gray\", \"arcgis-terrain\", \"arcgis-community\", \"arcgis-charted-territory\", \"arcgis-colored-pencil\", \"arcgis-nova\", \"arcgis-modern-antique\", \"arcgis-midcentury\", \"arcgis-newspaper\", \"arcgis-hillshade-light\", \"arcgis-hillshade-dark\""
 
@@ -95,7 +95,7 @@ require([
   const view = new MapView({
     container: "viewDiv",
     center: [31.08184222222222, -29.70377],
-    zoom: 25,
+    zoom: 14,
     map
   });
 
