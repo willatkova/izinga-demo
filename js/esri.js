@@ -24,6 +24,7 @@ require([
   esriConfig.apiKey = "AAPK2588c434b37a400db192f3539f91643fZTG4LK79CxAmPGezuppyETKTjEcFeK6ORqJonklBfnB2z6HkiJiyvoawzag7v9rW";
 
   const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
+  // const url = "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer";
   
   const splitAction = {
     title: "Split",
@@ -69,15 +70,21 @@ require([
     }
   };
   
-  const pannellumLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"pannellum",opacity: 0.8,popupTemplate:popupTemplate});
-  const sewerLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"sewer",opacity: 0.8});
-  const stormwaterLayer = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"stormwater",opacity: 0.8});
+  const layer_00 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"layer_00",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_01 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"layer_01",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_02 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"layer_02",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_03 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/3",id:"layer_03",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_04 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/4",id:"layer_04",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_05 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/5",id:"layer_05",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_06 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/6",id:"layer_06",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_07 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/7",id:"layer_07",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_08 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/8",id:"layer_08",opacity: 0.8,popupTemplate:popupTemplate});
   
   
 
   const map = new Map({
-    basemap: "arcgis-imagery",
-    layers: [pannellumLayer,sewerLayer,stormwaterLayer]
+    // basemap: "arcgis-imagery",
+    layers: [layer_00,layer_01,layer_02,layer_03,layer_04,layer_05,layer_06,layer_07,layer_08]
   });
 
   const view = new MapView({
