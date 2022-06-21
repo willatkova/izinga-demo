@@ -197,38 +197,6 @@ require([
     position: "bottom-left"
   });
 
-
-
-  // on(dom.byId("layer0"), "click", function (event) {
-  //   console.log("layer zero");
-  //   pannellumLayer.visible = !pannellumLayer.visible;
-  //   if (pannellumLayer.visible) {
-  //     domStyle.set(dom.byId("layer0"), "color", "black");
-  //   } else {
-  //     domStyle.set(dom.byId("layer0"), "color", "darkgray");
-  //   }
-  // });
-
-  // on(dom.byId("layer1"), "click", function (event) {
-  //   console.log("layer one");
-  //   sewerLayer.visible = !sewerLayer.visible;
-  //   if (sewerLayer.visible) {
-  //     domStyle.set(dom.byId("layer1"), "color", "black");
-  //   } else {
-  //     domStyle.set(dom.byId("layer1"), "color", "darkgray");
-  //   }
-  // });
-
-  // on(dom.byId("layer2"), "click", function (event) {
-  //   console.log("layer two");
-  //   stormwaterLayer.visible = !stormwaterLayer.visible;
-  //   if (stormwaterLayer.visible) {
-  //     domStyle.set(dom.byId("layer2"), "color", "black");
-  //   } else {
-  //     domStyle.set(dom.byId("layer2"), "color", "darkgray");
-  //   }
-  // });
-
   view.popup.on("trigger-action", (event) => {
     const attributes = view.popup.viewModel.selectedFeature.attributes;
     console.log(attributes);
