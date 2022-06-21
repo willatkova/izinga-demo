@@ -121,7 +121,7 @@ require([
   const measureExpand = new Expand({
     view: view,
     content: new Measurement({
-      view: view,
+      // view: view,
       activeTool: "distance"
     }),
     group: "top-right",
