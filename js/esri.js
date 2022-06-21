@@ -120,8 +120,7 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    activeTool: "distance",
-    group: "top-right"
+    activeTool: "distance"
   });
 
   const measureExpand = new Expand({
@@ -185,7 +184,7 @@ require([
 
 
 
-  view.ui.add([legendExpand, layerListExpand, measurement, drawExpand, bookmarkExpand, printExpand, baseMapExpand], {
+  view.ui.add([legendExpand, layerListExpand, drawExpand, measureExpand, bookmarkExpand, printExpand, baseMapExpand], {
     position: "top-trailing"
   });
 
