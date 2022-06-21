@@ -181,7 +181,7 @@ require([
     expanded: false
   });
 
-
+  measurement.clear();
 
 
   view.ui.add([legendExpand, layerListExpand, drawExpand, measureExpand, bookmarkExpand, printExpand, baseMapExpand], {
