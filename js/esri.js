@@ -84,7 +84,7 @@ require([
 
   const map = new Map({
     // basemap: "arcgis-imagery",
-    layers: [layer_00,layer_01,layer_02,layer_03,layer_04,layer_05,layer_06,layer_07,layer_08]
+    layers: [layer_08,layer_01,layer_02,layer_03,layer_04,layer_05,layer_06,layer_07,layer_00]
   });
 
   const view = new MapView({
