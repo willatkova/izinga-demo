@@ -73,15 +73,15 @@ require([
   
   const layer_00 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"layer_00",opacity: 0.8,popupTemplate:popupTemplate});
   const layer_01 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"layer_01",opacity: 0.8});
-  // const layer_02 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"layer_02",opacity: 0.8,popupTemplate:popupTemplate});
-  // const layer_03 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/3",id:"layer_03",opacity: 0.8,popupTemplate:popupTemplate});
-  // const layer_04 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/4",id:"layer_04",opacity: 0.8,popupTemplate:popupTemplate});
-  // const layer_05 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/5",id:"layer_05",opacity: 0.8,popupTemplate:popupTemplate});
-  // const layer_06 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/6",id:"layer_06",opacity: 0.8,popupTemplate:popupTemplate});
-  // const layer_07 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/7",id:"layer_07",opacity: 0.8,popupTemplate:popupTemplate});
-  // const layer_08 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/8",id:"layer_08",opacity: 0.8,popupTemplate:popupTemplate});
+  const layer_02 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"layer_02",opacity: 0.8,visible:false});
+  const layer_03 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/3",id:"layer_03",opacity: 0.8,visible:false});
+  const layer_04 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/4",id:"layer_04",opacity: 0.8,visible:false});
+  const layer_05 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/5",id:"layer_05",opacity: 0.8,visible:false});
+  const layer_06 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/6",id:"layer_06",opacity: 0.8,visible:false});
+  const layer_07 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/7",id:"layer_07",opacity: 0.8,visible:false});
+  const layer_08 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/8",id:"layer_08",opacity: 0.8,visible:false});
   
-  const layer_10 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/13_October_2021_Izinga/ImageServer",visible: false});
+  const layer_10 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/13_October_2021_Izinga/ImageServer",visible:false});
   const layer_11 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/30_November_2021_Izinga/ImageServer",visible: false});
   const layer_12 = new ImageryLayer({url: "https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/23_May_2022_Izinga/ImageServer",visible: false});
 
@@ -89,13 +89,13 @@ require([
 
   const map = new Map({
     basemap: "arcgis-topographic",
-    layers: [layer_12,layer_11,layer_10,layer_01,layer_00]
+    layers: [layer_12,layer_11,layer_10,layer_08,layer_07,layer_06,layer_05,layer_04,layer_03,layer_02,layer_01,layer_00]
   });
 
   const view = new MapView({
     container: "viewDiv",
     center: [31.08184222222222, -29.70377],
-    zoom: 19,
+    zoom: 25,
     map
   });
 
