@@ -122,7 +122,7 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    activeTool: "distance"
+    // activeTool: "distance"
   });
 
   const measureExpand = new Expand({
