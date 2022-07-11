@@ -92,12 +92,13 @@ require([
     layers: [layer_12,layer_11,layer_10,layer_08,layer_07,layer_06,layer_05,layer_04,layer_03,layer_02,layer_01,layer_00]
   });
 
+  // 19 = 
   // 18 = 60m
-
+  // 17 = 100m
   const view = new MapView({
     container: "viewDiv",
     center: [31.08184222222222, -29.70377],
-    zoom: 17,
+    zoom: 19,
     map
   });
 
@@ -122,8 +123,9 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    // activeTool: "distance"
+    activeTool: "distance"
   });
+  measurement.clear();
 
   const measureExpand = new Expand({
     view: view,
