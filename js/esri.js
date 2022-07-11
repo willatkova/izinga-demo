@@ -95,11 +95,11 @@ require([
   // 19 = 20m
   // 18 = 60m
   // 17 = 100m
-  // 16 = 
+  // 16 = 300m
   const view = new MapView({
     container: "viewDiv",
     center: [31.08184222222222, -29.70377],
-    zoom: 16,
+    zoom: 17,
     map
   });
 
@@ -124,10 +124,10 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    activeTool: null
+    // activeTool: null
   });
   
-  
+
 
   const measureExpand = new Expand({
     view: view,
