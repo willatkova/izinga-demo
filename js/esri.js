@@ -71,7 +71,7 @@ require([
     }
   };
   
-  const layer_00 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"layer_00",opacity: 0.8,popupTemplate:popupTemplate,title:"Izinga 360"});
+  const layer_00 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/0",id:"layer_00",opacity: 0.8,visible:false,title:"Izinga 360",popupTemplate:popupTemplate});
   const layer_01 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/1",id:"layer_01",opacity: 0.8,title:"Cadastral Parcels"});
   const layer_02 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/2",id:"layer_02",opacity: 0.8,visible:false,title:"Blocks"});
   const layer_03 = new FeatureLayer({url:"https://gis9.mhpgeospace.co.za/arcgisserver/rest/services/Izinga/Izinga_3D_Imagery/MapServer/3",id:"layer_03",opacity: 0.8,visible:false,title:"Gatehouse"});
@@ -92,10 +92,12 @@ require([
     layers: [layer_12,layer_11,layer_10,layer_08,layer_07,layer_06,layer_05,layer_04,layer_03,layer_02,layer_01,layer_00]
   });
 
+  // 18 = 60m
+
   const view = new MapView({
     container: "viewDiv",
     center: [31.08184222222222, -29.70377],
-    zoom: 18,
+    zoom: 17,
     map
   });
 
