@@ -127,6 +127,7 @@ require([
     activeTool: null
   });
   
+  
 
   const measureExpand = new Expand({
     view: view,
