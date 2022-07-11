@@ -124,10 +124,9 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    // activeTool: null
+    activeTool: "distance"
   });
   
-
 
   const measureExpand = new Expand({
     view: view,
@@ -187,6 +186,7 @@ require([
     expanded: false
   });
 
+  
 
 
   view.ui.add([legendExpand, layerListExpand, drawExpand, measureExpand, bookmarkExpand, printExpand, baseMapExpand], {
