@@ -124,7 +124,7 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    activeTool: ""
+    activeTool: null
   });
   
 
