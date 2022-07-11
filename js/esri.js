@@ -245,6 +245,6 @@ require([
     }
   });
 
-  measurement.clear();
+  
   
 });
