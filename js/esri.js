@@ -124,7 +124,8 @@ require([
 
   const measurement = new Measurement({
     view: view,
-    activeTool: "distance"
+    activeTool: "distance",
+    
   });
   
 
@@ -243,5 +244,7 @@ require([
       domStyle.set(framePrev, "width", "0%");
     }
   });
+
+  measurement.clear();
   
 });
